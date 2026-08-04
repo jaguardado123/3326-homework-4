@@ -1,0 +1,2 @@
+// Create a House to reduce repeating code in the Condo, Duplex, and Townhouse classes. 
+// The House class should contain common attributes and methods that are shared among these types of properties.
