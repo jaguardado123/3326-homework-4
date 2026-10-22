@@ -5,28 +5,34 @@ import problem1.*;
 public class Test_Problem1 {
 
 	@Test
-	public void testing_linkedlist() {
-        LinkedList list = new LinkedList();
-		list.insert(5);
-		list.insert(10);
-		list.insert(15);
+	public void testing_Product() {
+        Product product = new Product();
 		
-		assertEquals(3, list.size());
+		assertEquals(product.cost(75.5) == 75.5, true);
+		assertEquals(product.cost(32.0, 0.30) == 22.4, true);
+		assertEquals(product.cost(55.0, 0.40) == 33.0, true);
+		assertEquals(product.cost(20.0, "QWE-456") == 10.0, true);
+		assertEquals(product.cost(30.0, "bob") == 30.0, true);
 	}
 
 	@Test
-	public void testing_linkedlist_values() {
-        LinkedList list = new LinkedList();
-		list.insert(2);
-		list.insert(4);
-		list.insert(8);
-		list.insert(16);
+	public void testing_MovieTicket() {
+        Product ticket = new MovieTicket();
 
-		assertEquals(4, list.size());
+		assertEquals( ((MovieTicket) ticket).cost("Tuesday", 12.0, 1) == 6.0, true);
+		assertEquals( ((MovieTicket) ticket).cost("Tuesday", 10.0, 3) == 15.0, true);
+		assertEquals( ((MovieTicket) ticket).cost("Saturday", 11.0, 2) == 22.0, true);
+	}
 
-		assertEquals(2, list.get(0));
-		assertEquals(4, list.get(1));
-		assertEquals(8, list.get(2));
-		assertEquals(16, list.get(3));
+	@Test
+	public void testing_Popcorn() {
+        Product popcorn = new Popcorn();
+
+		assertEquals( ((Popcorn) popcorn).cost(8.00, "small", true) == 7.5, true);
+		assertEquals( ((Popcorn) popcorn).cost(9.00, "small", false) == 8.0, true);
+		assertEquals( ((Popcorn) popcorn).cost(8.00, "medium", true) == 8.5, true);
+		assertEquals( ((Popcorn) popcorn).cost(9.00, "medium", false) == 9.0, true);
+		assertEquals( ((Popcorn) popcorn).cost(8.00, "large", true) == 10.5, true);
+		assertEquals( ((Popcorn) popcorn).cost(9.00, "large", false) == 11.0, true);
 	}
 }

@@ -5,27 +5,46 @@ import problem2.*;
 public class Test_Problem2 {
 	
 	@Test
-	public void testing_condo() {
-		// Testing for inheritance
-		House parent = new House("456 Elm St", 1200.0f, 4);
-		Condo child = new Condo("123 Main St", 1000.0f, 3, "Building A", 101);
-		assertEquals(true, parent.getClass().isAssignableFrom(child.getClass()) );
+	public void testing_Math() {
+		Math math = new Math();
+		double [] numbersA = {2.0, 3.0, 4.0};
+		double [] numbersB = {22.0, 35.0, 4.0, 12.5};
+
+
+		expect( math.list(numbersA) == 0.0, true);
+		expect( math.list(numbersB) == 0.0, true);
 	}
 
 	@Test
-	public void testing_duplex() {
-		// Testing for inheritance
-		House parent = new House("456 Elm St", 1200.0f, 4);
-		Duplex child = new Duplex("789 Oak Ave", 800.0f, 2, true);
-		assertEquals(true, parent.getClass().isAssignableFrom(child.getClass()) );
+	public void testing_Largest() {
+		Math math = new Largest();
+		double [] numbersA = {2.0, 3.0, 4.0};
+		double [] numbersB = {22.0, 35.0, 4.0, 12.5};
+
+
+		expect( math.list(numbersA) == 4.0, true);
+		expect( math.list(numbersB) == 35.0, true);
 	}
 
 	@Test
-	public void testing_townhouse() {
-		// Testing for inheritance
-		House parent = new House("456 Elm St", 1200.0f, 4);
-		Townhouse child = new Townhouse("101 Pine Rd", 1500.0f, 5, false, 3);
-		assertEquals(true, parent.getClass().isAssignableFrom(child.getClass()) );
+	public void testing_Smallest() {
+		Math math = new Smallest();
+		double [] numbersA = {2.0, 3.0, 4.0};
+		double [] numbersB = {22.0, 35.0, 4.0, 12.5};
+
+
+		expect( math.list(numbersA) == 2.0, true);
+		expect( math.list(numbersB) == 4.0, true);
 	}
 
+	@Test
+	public void testing_Average() {
+		Math math = new Average();
+		double [] numbersA = {2.0, 3.0, 4.0};
+		double [] numbersB = {22.0, 35.0, 4.0, 12.0};
+
+
+		expect( math.list(numbersA) == 3.0, true);
+		expect( math.list(numbersB) == 18.25, true);
+	}
 }
