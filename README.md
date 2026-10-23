@@ -241,6 +241,13 @@ You can test your solution by running `Test_Problem3.java`.
 <br>
 
 ## Grading Criteria
+
+If the play button doesn't appear next to your tests, you can run the following command in your terminal:
+
+```
+./run_tests.sh
+```
+
 | Criteria | Points |
 |---|---|
 | Problem 1 MovieTicket and Popcorn don't inherit Product. | -10 |
