@@ -52,6 +52,8 @@ Overriding, is when we have multiple methods with the same name, type, and signa
 
 When overrding a method from a *parent-class*, it's important to add an `@Override` annotation above the *child-class* method. This annotation is not required for overriding, but it ensures that overriding is done correctly.
 
+After a method is overriden is it gone forever? No, there is one way to still use the original *parent-class* method and that's by using **super** within the *child-class*. 
+
 **Example:**
 
 ```java
@@ -87,8 +89,6 @@ public class Main {
 To learn more, visit: https://www.programiz.com/java-programming/method-overriding
 
 ### Polymorphic Variables
-
-Remember *Inheritance* and *Chain Inheritance*?
 
 When a *child-class* extends to a *parent-class* it now has an *"is a"* relationship with the *parent-class*.
 
@@ -158,6 +158,24 @@ To learn more, visit: https://www.w3schools.com/java/java_polymorphism.asp and h
 
 ### Cinemark Products - Overloading
 
+Assume you are hired by Cinemark to update their pricing software for their products such as popcorn and movie tickets.
+
+However, during your hiring interview you told the CEO of Cinemark Sean Gamble that you are an expert in OOP. Now it's time to show-off your skills.
+
+**Your task:**
+
+Overload the `cost()` method inside the **Product** class, such that it can accept arguments for the following scenarios.
+
+- `cost(price)`
+- `cost(price, discount_percent)`
+- `cost(price, promo_code)`
+
+Next, make the classes **Popcorn** and **MovieTicket** inherit the Product class, since they are both Cinemark products. Overload the `cost()` method such that they accept arguments for the scenarios below.
+
+- `cost(price, size, seasoned)`
+- `cost(showtime, price, quantity)`
+
+Make sure your methods follow the instructions in the comments.
 
 You can test your solution by running `Test_Problem1.java`.
 
@@ -167,6 +185,17 @@ You can test your solution by running `Test_Problem1.java`.
 
 ### Number Lists - Override
 
+The following classes have been provided to you: **Math**, **Largest**, **Smallest**, and **Average**.
+
+The **Math** class has a `list()` method that receives an array of numbers, but simply returns `0`. Your task is to redefine this method in various *sub-classes* to perform an actual task.
+
+**Your task:**
+
+Make classes **Largest**, **Smallest**, and **Average** inherit the **Math** class, then do the following:
+
+- Override the `list()` method inside **Largest** to return the largest number in the array.
+- Override the `list()` method inside **Smallest** to return the smallest number in the array.
+- Override the `list()` method inside **Average** to return the average of the numbers in the array.
 
 You can test your solution by running `Test_Problem2.java`.
 
@@ -176,6 +205,36 @@ You can test your solution by running `Test_Problem2.java`.
 
 ### Multi-Database Inventory System - Polymorphic Variables
 
+Assume you are a software engineer hired by a new start up company StoreAnywhere Inc that prides itself in being compatible with all database managing systems including: SQLite, Microsoft SQL, Firebase, and Supabase.
+
+As an OOP expert you decide write an **Inventory** class that uses *composition* with the class **Database**.
+
+```java
+// Inside problem3/Database.java
+public class Database {
+    public String connect() { ... }
+}
+// Inside problem3/Inventory.java
+public class Inventory {
+    private Database db; 
+    public void connectionType(String type) { ... }
+    public void connectionStatus() { ... }
+}
+```
+
+Next, you create classes for **SQLiteDB**, **MicrosoftSQL_DB**, **FirebaseDB**, and **SupabaseDB**. 
+
+Then the CEO stops by your office and asks you *"Why do you only have one variable db of type Database? Shouldn't you have multipe for SQLite, Firebase, and the rest?"*. You of course explain to him what polymorphic variables are and continue coding.
+
+**Your task:**
+
+- Make classes **SQLiteDB**, **MicrosoftSQL_DB**, **FirebaseDB**, and **SupabaseDB** inherit the **Database** class to establish an "is a" relationship.
+
+- Override the `connect()` method inside **SQLiteDB**, **MicrosoftSQL_DB**, **FirebaseDB**, and **SupabaseDB** to return the correct String.
+
+- Update the `connectionStatus(type)` method inside **Inventory** to instantiate the correct class according to the value of `type`.
+
+Make sure to follow the instructions in the comments.
 
 You can test your solution by running `Test_Problem3.java`.
 
@@ -184,12 +243,13 @@ You can test your solution by running `Test_Problem3.java`.
 ## Grading Criteria
 | Criteria | Points |
 |---|---|
-| Problem 1 Node class is not inside Node.java | -10 |
-| Problem 1 LinkedList class does not pass the tests | -20 |
-| Problem 2 House class is not inside House.java | -10 |
-| Problem 2 Condo, Duplex, and Townhouse do not pass tests | -20 |
-| Problem 2 There is duplicate attributes | -10 |
-| Problem 3 Employee, Manager, RegionalManager don't pass tests | -20 |
-| Problem 3 There is duplicate attributes | -10 |
+| Problem 1 MovieTicket and Popcorn don't inherit Product. | -10 |
+| Problem 1 The cost() method isn't overloaded as instructed. | -15 |
+| Problem 2 Average, Largest, and Smallest don't inherit Math. | -10 |
+| Problem 2 The list() method isn't overriden as instructed. | -15 |
+| Problem 2 @Override isn't used. | -5 |
+| Problem 3 FirebaseDB, SupabaseDB, SQLiteDB, and MicrosoftSQL_DB don't inherit Database. | -10 |
+| Problem 3 The connect() method isn't overriden as instructed and doesn't use @Override. | -15 |
+| Problem 3 The connectionStatus() method isn't implemented as instructed. | -20 |
 
 [How to Submit Assignments to GitHub](https://joselitoguardado.dev/3326/How_to_Submit_Assignments_to_GitHub.pdf)
