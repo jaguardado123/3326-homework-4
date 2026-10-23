@@ -1,4 +1,4 @@
-# Homework 3
+# Homework 4
 
 In this homework you will practice working with **Polymorphism** topics: **Overload**, **Override**, and **Polymorphic Variables**.
 
@@ -39,6 +39,8 @@ public class Poly {
     }
 }
 ```
+
+To learn more, visit: https://www.w3schools.com/Java/java_methods_overloading.asp 
 
 ### Override
 
@@ -82,9 +84,71 @@ public class Main {
 }
 ```
 
+To learn more, visit: https://www.programiz.com/java-programming/method-overriding
+
 ### Polymorphic Variables
 
+Remember *Inheritance* and *Chain Inheritance*?
 
+When a *child-class* extends to a *parent-class* it now has an *"is a"* relationship with the *parent-class*.
+
+Now, let's assume we have a class **SportsCar** that extends to a class **Car**, and we then create a standard SportsCar object `SportsCar mustang = new SportsCar();`. The variable `mustang` can access class members from both **SportsCar and Car**. <ins>This is because the object it's referencing is both a SportsCar and Car thanks to *Inheritance*</ins>
+ 
+Variables that can access class members from multiple classes are called **Polymorphic Variables**.
+
+Polymorphic Variables give us the ability to declare variables using the type of the *parent-class*, for example: `Car charger = new SportsCar();`, because a **SportsCar *"is a"* Car**. Now, the variable `charger` can only access class members from **Car**, however it can access class members from **SportsCar** by simply using typecasting: `((SportsCar) charger)`.
+
+**Example:**
+```java
+class Animal {
+    public void habitat() { 
+        System.out.print("Lives on Earth."); 
+    }
+}
+
+// Pet "is an" Animal
+class Pet extends Animal {
+    public void domestic() {
+        System.out.print("Has an owner.");
+    }
+}
+
+// Dog "is a" Pet & "is an" Animal
+class Dog extends Pet {
+    public void speak() {
+        System.out.print("Bark! Bark!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Dog variable referencing a Dog object
+        Dog spot = new Dog();
+        // spot can access all members of Dog, Pet, & Animal
+        spot.speak(); 
+        spot.domestic(); 
+        spot.habitat();
+
+        // Pet variable referencing a Dog object
+        Pet poodle = new Dog();
+        // poodle can only access members of Pet & Animal
+        poodle.domestic(); 
+        poodle.habitat();
+        // poodle can still access Dog members with typecasting
+        ((Dog) poodle).speak();
+
+        // Animal variable referencing a Dog object
+        Animal canine = new Dog();
+        // canine can only access members of Animal
+        canine.habitat();
+        // canine can still access Pet & Dog members with typecasting
+        ((Pet) canine).domestic();
+        ((Dog) canine).speak();
+    }
+}
+```
+
+To learn more, visit: https://www.w3schools.com/java/java_polymorphism.asp and https://www.programiz.com/java-programming/polymorphism#polymorphic-variable
 
 <br>
 
