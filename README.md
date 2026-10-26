@@ -193,9 +193,9 @@ The **Math** class has a `list()` method that receives an array of numbers, but 
 
 Make classes **Largest**, **Smallest**, and **Average** inherit the **Math** class, then do the following:
 
-- Override the `list()` method inside **Largest** to return the largest number in the array.
-- Override the `list()` method inside **Smallest** to return the smallest number in the array.
-- Override the `list()` method inside **Average** to return the average of the numbers in the array.
+- Override the `list(numbers [])` method inside **Largest** to return the largest number in the `numbers` array.
+- Override the `list(numbers [])` method inside **Smallest** to return the smallest number in the `numbers` array.
+- Override the `list(numbers [])` method inside **Average** to return the average of the numbers in the `numbers` array.
 
 You can test your solution by running `Test_Problem2.java`.
 
